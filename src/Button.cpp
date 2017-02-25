@@ -58,7 +58,7 @@ bool Button::isClicked(sf::RenderWindow *window)
 
 }
 
- void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
      target.draw(rect);
      target.draw(inscription);
