@@ -1,6 +1,10 @@
 #ifndef PROGRAM_H
 #define PROGRAM_H
 
+#include <SFML/Graphics.hpp>
+
+class StateManager;
+
 class Program
 {
     public:
