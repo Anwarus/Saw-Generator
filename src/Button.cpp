@@ -1,6 +1,5 @@
 #include "Button.h"
 
-
 Button::Button(int positionX, int positionY, int sizeX, int sizeY, string text , sf::Color color)
 {
     m_positionX = positionX;
