@@ -10,15 +10,16 @@ class Program
     public:
         Program();
 
-        void init();
         void loop();
 
     protected:
 
     private:
+        void init();
+
         //Input/Output
         sf::RenderWindow m_iOSystem;
-        //Core
+        //Logic
         StateManager     m_stateManager;
 };
 

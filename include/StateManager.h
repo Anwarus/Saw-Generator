@@ -1,7 +1,7 @@
 #ifndef STATEMANAGER_H
 #define STATEMANAGER_H
 
-#include <vector>
+#include <stack>
 
 class State;
 
@@ -18,7 +18,7 @@ class StateManager
     protected:
 
     private:
-        std::vector<State> m_states;
+        std::stack<State> m_states;
 };
 
 #endif // STATEMANAGER_H
