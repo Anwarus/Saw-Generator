@@ -22,13 +22,15 @@ void Button::setRect()
 
 void Button::setInscription()
 {
-    if(!font.loadFromFile("arial.ttf"))
+    if(!font.loadFromFile("data/consola.ttf"))
       cout<<"Could not load font!";
 
     inscription.setString(m_text);
     inscription.setFont(font);
-    inscription.setCharacterSize(m_sizeY);
-    inscription.setPosition(m_positionX + m_sizeY/1.5,m_positionY - m_sizeY/6);
+    inscription.setCharacterSize(m_sizeY/1.5);
+    int inscriptionWidth = inscription.getGlobalBounds().width;
+    int inscriptionHeight = inscription.getGlobalBounds().height;
+    inscription.setPosition(m_positionX + m_sizeX/2 - inscriptionWidth/2,m_positionY + m_sizeY/2 - inscriptionHeight);
 }
 
 
@@ -36,13 +38,6 @@ bool Button::isClicked(sf::RenderWindow *window)
 {
     mousePosition = sf::Mouse::getPosition(*window);
 
-
-   /*
-    if((mousePosition.x >= m_positionX && mousePosition.x <= m_positionX + m_sizeX) && (mousePosition.y >= m_positionX && mousePosition.y <= m_positionY+ m_sizeY))
-         cout<<"Clicked"<<endl;
-    else
-        cout<<mousePosition.x<<"|"<<mousePosition.y<<endl;
-    */
     if(rect.getGlobalBounds().contains(mousePosition.x,mousePosition.y))
     {
         cout<<"Clicked"<<endl;
