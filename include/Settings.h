@@ -9,20 +9,17 @@ class Settings
         Settings();
         Settings(std::string path);
 
-        std::string path;
-
-        int width;
-        int height;
-        int fps;
-
-    protected:
+        int width  = 800;
+        int height = 600;
+        int fps    = 60;
 
     private:
-        void loadDefaultSettings();
         void loadSettingsFromFile();
         std::string getParameter(std::string line);
         std::string getValue(std::string line);
         void setParameter(std::string parameter, std::string value);
+
+        std::string path;
 };
 
 #endif // SETTINGS_H

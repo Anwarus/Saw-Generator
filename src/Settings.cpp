@@ -6,22 +6,13 @@
 Settings::Settings()
 {
     path = "settings.ini";
-    loadDefaultSettings();
     loadSettingsFromFile();
 }
 
 Settings::Settings(std::string path)
 {
     this->path = path;
-    loadDefaultSettings();
     loadSettingsFromFile();
-}
-
-void Settings::loadDefaultSettings()
-{
-    width = 800;
-    height = 600;
-    fps = 60;
 }
 
 void Settings::loadSettingsFromFile()
