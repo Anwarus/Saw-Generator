@@ -9,9 +9,10 @@ class Settings
         Settings();
         Settings(std::string path);
 
-        int width  = 800;
-        int height = 600;
-        int fps    = 60;
+        std::string name = "Saw Generator";
+        int width        = 800;
+        int height       = 600;
+        int fps          = 60;
 
     private:
         void loadSettingsFromFile();

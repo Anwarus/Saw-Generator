@@ -7,6 +7,12 @@ StateManager::StateManager()
     //ctor
 }
 
+StateManager::~StateManager()
+{
+    while(!m_states.empty())
+        popState();
+}
+
 void StateManager::pushState(State* state)
 {
     m_states.push(state);
@@ -17,6 +23,7 @@ void StateManager::popState()
     if(m_states.empty())
         return;
 
+    delete m_states.top();
     m_states.pop();
 }
 

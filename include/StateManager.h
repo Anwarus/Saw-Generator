@@ -9,6 +9,7 @@ class StateManager
 {
     public:
         StateManager();
+        ~StateManager();
 
         void  pushState(State* state);
         void  popState();

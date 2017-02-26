@@ -82,8 +82,8 @@ void Settings::setParameter(std::string parameter, std::string value)
 {
     if(parameter == "width")
         width = std::stoi(value);
-    else if(parameter = "height")
+    else if(parameter == "height")
         height = std::stoi(value);
-    else if(parameter = "fps")
+    else if(parameter == "fps")
         fps = std::stoi(value);
 }

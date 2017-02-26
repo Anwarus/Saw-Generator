@@ -3,10 +3,8 @@
 
 int main()
 {
-    //Program program = Program();
-    //program.loop();
-
-    Settings settings = Settings();
+    Program program;
+    program.loop();
 
     return 0;
 }
