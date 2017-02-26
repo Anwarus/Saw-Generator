@@ -2,8 +2,8 @@
 #define PROGRAM_H
 
 #include <SFML/Graphics.hpp>
-
-class StateManager;
+#include "StateManager.h"
+#include "Settings.h"
 
 class Program
 {
@@ -12,7 +12,9 @@ class Program
 
         void loop();
 
-    protected:
+        sf::RenderWindow& getIOSystem() { return m_iOSystem; };
+        StateManager& getStateManager() { return m_stateManager; };
+        Settings& getSettings() { return m_settings; };
 
     private:
         void init();
@@ -21,6 +23,7 @@ class Program
         sf::RenderWindow m_iOSystem;
         //Logic
         StateManager     m_stateManager;
+        Settings         m_settings;
 };
 
 #endif // PROGRAM_H

@@ -1,8 +1,9 @@
 #include "Program.h"
+#include "Settings.h"
 
 int main()
 {
-    Program program = Program();
+    Program program;
     program.loop();
 
     return 0;
