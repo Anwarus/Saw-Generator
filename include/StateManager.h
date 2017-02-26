@@ -10,15 +10,15 @@ class StateManager
     public:
         StateManager();
 
-        void  pushState(State state);
+        void  pushState(State* state);
         void  popState();
-        void  changeState(State state);
-        State peekState();
+        void  changeState(State* state);
+        State* peekState();
 
     protected:
 
     private:
-        std::stack<State> m_states;
+        std::stack<State*> m_states;
 };
 
 #endif // STATEMANAGER_H

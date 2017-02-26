@@ -18,8 +18,8 @@ void Program::loop()
 
     while(true)
     {
-        m_stateManager.peekState().input();
-        m_stateManager.peekState().update();
-        m_stateManager.peekState().draw();
+        //m_stateManager.peekState().input();
+        //m_stateManager.peekState().update();
+        //m_stateManager.peekState().draw();
     }
 }

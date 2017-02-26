@@ -12,15 +12,14 @@ class Program
 
         void loop();
 
-    protected:
-
     private:
         void init();
 
         //Input/Output
-        sf::RenderWindow m_iOSystem;
+        //sf::RenderWindow m_iOSystem;
         //Logic
-        StateManager     m_stateManager;
+        //StateManager     m_stateManager;
+        //Settings
 };
 
 #endif // PROGRAM_H

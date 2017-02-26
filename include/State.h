@@ -1,6 +1,7 @@
 #ifndef STATE_H
 #define STATE_H
 
+class Program;
 
 class State
 {

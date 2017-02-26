@@ -1,11 +1,13 @@
 #include "StateManager.h"
 
+#include "State.h"
+
 StateManager::StateManager()
 {
     //ctor
 }
 
-void StateManager::pushState(State state)
+void StateManager::pushState(State* state)
 {
     m_states.push(state);
 }
@@ -18,13 +20,13 @@ void StateManager::popState()
     m_states.pop();
 }
 
-void StateManager::changeState(State state)
+void StateManager::changeState(State* state)
 {
     popState();
     pushState(state);
 }
 
-State StateManager::peekState()
+State* StateManager::peekState()
 {
     if(m_states.empty())
         return nullptr;
