@@ -16,6 +16,26 @@ void StateMenu::input()
     {
         if(event.type == sf::Event::Closed)
             m_program->getIOSystem().close();
+
+        if(event.type == sf::Event::MouseButtonPressed)
+        {
+            if(event.mouseButton.button == sf::Mouse::Left)
+            {
+                //check the inputField and button
+            }
+
+/*          INSERTING AND ERASING THE TEXT IN TEXTFIELDS
+
+            if(event.type.TextEntered)
+            {
+                //insert a text into textField
+            }
+            else if(event.type.KeyPressed && event.key.code = sf::Keyboard::BackSpace)
+            {
+                //erase a text from textField
+            }
+*/
+        }
     }
 }
 

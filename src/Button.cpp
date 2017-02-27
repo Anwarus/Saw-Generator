@@ -43,13 +43,11 @@ bool Button::isClicked(sf::RenderWindow *window)
         cout<<"Clicked"<<endl;
         return true;
     }
-
     else
     {
         cout<<mousePosition.x<<"|"<<mousePosition.y<<endl;
         return false;
     }
-
 
 }
 

@@ -12,7 +12,7 @@ class Settings
         std::string name = "Saw Generator";
         int width        = 800;
         int height       = 600;
-        int fps          = 60;
+        int fps          = 1;
 
     private:
         void loadSettingsFromFile();
