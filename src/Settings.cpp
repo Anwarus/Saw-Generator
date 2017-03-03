@@ -3,18 +3,6 @@
 #include <iostream>
 #include <fstream>
 
-Settings::Settings()
-{
-    path = "settings.ini";
-    loadSettingsFromFile();
-}
-
-Settings::Settings(std::string path)
-{
-    this->path = path;
-    loadSettingsFromFile();
-}
-
 void Settings::loadSettingsFromFile()
 {
     std::ifstream file (path);
