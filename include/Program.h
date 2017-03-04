@@ -11,16 +11,16 @@ class Program
 
         void loop();
 
-        sf::RenderWindow& getIOSystem() { return m_iOSystem; };
-        StateManager& getStateManager() { return m_stateManager; };
+        sf::RenderWindow& getIOSystem() { return iOSystem; };
+        StateManager& getStateManager() { return stateManager; };
 
     private:
         void init();
 
         //Input/Output
-        sf::RenderWindow m_iOSystem;
+        sf::RenderWindow iOSystem;
         //Logic
-        StateManager     m_stateManager;
+        StateManager     stateManager;
 };
 
 #endif // PROGRAM_H

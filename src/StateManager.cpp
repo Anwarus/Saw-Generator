@@ -9,22 +9,22 @@ StateManager::StateManager()
 
 StateManager::~StateManager()
 {
-    while(!m_states.empty())
+    while(!states.empty())
         popState();
 }
 
 void StateManager::pushState(State* state)
 {
-    m_states.push(state);
+    states.push(state);
 }
 
 void StateManager::popState()
 {
-    if(m_states.empty())
+    if(states.empty())
         return;
 
-    delete m_states.top();
-    m_states.pop();
+    delete states.top();
+    states.pop();
 }
 
 void StateManager::changeState(State* state)
@@ -35,8 +35,8 @@ void StateManager::changeState(State* state)
 
 State* StateManager::peekState()
 {
-    if(m_states.empty())
+    if(states.empty())
         return nullptr;
 
-    return m_states.top();
+    return states.top();
 }

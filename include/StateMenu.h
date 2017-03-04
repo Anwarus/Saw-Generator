@@ -10,6 +10,7 @@ class StateMenu : public State
     public:
         StateMenu(Program* program);
 
+        virtual void init();
         virtual void input();
         virtual void update(float deltaTime);
         virtual void draw();
