@@ -3,7 +3,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "StateManager.h"
-#include "Settings.h"
 
 class Program
 {
@@ -23,7 +22,6 @@ class Program
         sf::RenderWindow m_iOSystem;
         //Logic
         StateManager     m_stateManager;
-        Settings         m_settings;
 };
 
 #endif // PROGRAM_H

@@ -1,8 +1,13 @@
 #include "ParserIni.h"
 
-ParserIni::ParserIni()
+ParserIni::ParserIni(std::string fileName)
 {
-    //ctor
+    open(fileName);
+}
+
+void ParserIni::open(std::string fileName)
+{
+
 }
 
 void Settings::loadSettingsFromFile()

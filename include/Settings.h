@@ -14,7 +14,6 @@ class Settings
         }
 
         void setField(std::string key, std::string value);
-        void setFields(std::map<std::string, std::string>& fields);
         std::string getFieldValue(std::string key);
 
     private:
