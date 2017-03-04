@@ -23,28 +23,29 @@ void StateMenu::input()
             {
                 //check the inputField and button
             }
+        }
 
-/*          INSERTING AND ERASING THE TEXT IN TEXTFIELDS
+/*        INSERTING AND ERASING THE TEXT IN TEXTFIELDS
 
             if(event.type.TextEntered)
             {
-                //insert a text into textField
+               if( event.text.unicode >= 48 && event.text.unicode <=57)
+               //insert a text into textField
             }
             else if(event.type.KeyPressed && event.key.code = sf::Keyboard::BackSpace)
             {
                 //erase a text from textField
             }
 */
-        }
     }
 }
 
 void StateMenu::update(float deltaTime)
 {
-    std::cout<<"update\n";
+    //std::cout<<"update\n";
 }
 
 void StateMenu::draw()
 {
-    std::cout<<"draw\n";
+    //std::cout<<"draw\n";
 }

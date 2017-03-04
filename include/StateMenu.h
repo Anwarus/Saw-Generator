@@ -15,6 +15,7 @@ class StateMenu : public State
         virtual void draw();
 
     private:
+
 };
 
 #endif // STATEMENU_H

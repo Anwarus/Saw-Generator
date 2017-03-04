@@ -1,58 +1,47 @@
 #include "Button.h"
 
-Button::Button(int positionX, int positionY, int sizeX, int sizeY, string text , sf::Color color)
+Button::Button(int positionX, int positionY, int sizeX, int sizeY, std::string text, sf::Color color)
 {
     m_positionX = positionX;
     m_positionY = positionY;
     m_sizeX = sizeX;
     m_sizeY = sizeY;
     m_color = color;
-    m_text = text;
+    m_string = text;
 
-    setRect();
-    setInscription();
+    setRectangle();
+    setText();
 }
 
-void Button::setRect()
+void Button::stateOfButton(sf::RenderWindow *window)
 {
-    rect.setSize(sf::Vector2f(m_sizeX,m_sizeY));
-    rect.setPosition(m_positionX,m_positionY);
-    rect.setFillColor(m_color);
-}
+    m_mousePosition = sf::Mouse::getPosition(*window);
 
-void Button::setInscription()
-{
-    if(!font.loadFromFile("data/consola.ttf"))
-      cout<<"Could not load font!";
-
-    inscription.setString(m_text);
-    inscription.setFont(font);
-    inscription.setCharacterSize(m_sizeY/1.5);
-    int inscriptionWidth = inscription.getGlobalBounds().width;
-    int inscriptionHeight = inscription.getGlobalBounds().height;
-    inscription.setPosition(m_positionX + m_sizeX/2 - inscriptionWidth/2,m_positionY + m_sizeY/2 - inscriptionHeight);
-}
-
-
-bool Button::isClicked(sf::RenderWindow *window)
-{
-    mousePosition = sf::Mouse::getPosition(*window);
-
-    if(rect.getGlobalBounds().contains(mousePosition.x,mousePosition.y))
-    {
-        cout<<"Clicked"<<endl;
-        return true;
-    }
+    if(m_rectangle.getGlobalBounds().contains(m_mousePosition.x,m_mousePosition.y))
+        isHover = true;
     else
+        isHover = false;
+
+    if(isHover)
     {
-        cout<<mousePosition.x<<"|"<<mousePosition.y<<endl;
-        return false;
+        m_rectangle.setSize(sf::Vector2f(m_sizeX -4, m_sizeY -4));
+        m_rectangle.setFillColor(sf::Color::Black);
+        m_rectangle.setOutlineThickness(2);
+        m_rectangle.setOutlineColor(m_color);
+
+        m_text.setColor(m_color);
+    }else
+    {
+        m_rectangle.setSize(sf::Vector2f(m_sizeX, m_sizeY ));
+        m_rectangle.setFillColor(m_color);
+
+        m_text.setColor(sf::Color::Black);
     }
 
 }
 
 void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-     target.draw(rect);
-     target.draw(inscription);
+     target.draw(m_rectangle);
+     target.draw(m_text);
 }

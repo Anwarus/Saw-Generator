@@ -2,25 +2,26 @@
 #define SETTINGS_H
 
 #include <string>
+#include <map>
 
 class Settings
 {
     public:
-        Settings();
-        Settings(std::string path);
+        static Settings& getInstance()
+        {
+            static Settings instance;
+            return instance;
+        }
 
-        std::string name = "Saw Generator";
-        int width        = 800;
-        int height       = 600;
-        int fps          = 1;
+        void setField(std::string key, std::string value);
+        std::string getFieldValue(std::string key);
 
     private:
-        void loadSettingsFromFile();
-        std::string getParameter(std::string line);
-        std::string getValue(std::string line);
-        void setParameter(std::string parameter, std::string value);
+        Settings() {};
+        Settings(const Settings&);
+        Settings& operator=(const Settings*);
 
-        std::string path;
+        std::map<std::string, std::string> fields;
 };
 
 #endif // SETTINGS_H
