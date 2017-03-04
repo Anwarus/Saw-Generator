@@ -1,48 +1,58 @@
 #include "ParserIni.h"
 
+ParserIni::ParserIni()
+{
+    opened = false;
+}
+
 ParserIni::ParserIni(std::string fileName)
 {
+    opened = false;
     open(fileName);
 }
 
-void ParserIni::open(std::string fileName)
+ParserIni::~ParserIni()
 {
-
-}
-
-void Settings::loadSettingsFromFile()
-{
-    std::ifstream file (path);
-    if(file.is_open())
-    {
-        std::string line;
-        //Get single line from file
-        while ( getline (file,line) )
-        {
-            //Skip if this is comment line or section line
-            if(line[0] == ';' || line[0] == '[')
-                continue;
-
-            std::string parameter, value;
-
-            //Get parameter
-            parameter = getParameter(line);
-
-            //Get value of this parameter
-            value = getValue(line);
-
-            //Check if parameter and value if valid
-            if(parameter == ";" || value == ";")
-                continue;
-
-            //Set parameter
-            setParameter(parameter, value);
-        }
+    if(opened)
         file.close();
-    }
 }
 
-std::string Settings::getParameter(std::string line)
+bool ParserIni::open(std::string fileName)
+{
+    file.open(fileName);
+    if(!file.good())
+        return false;
+    opened = true;
+    return true;
+}
+
+void ParserIni::close()
+{
+    if(!opened)
+        return;
+    file.close();
+    opened = false;
+}
+
+bool ParserIni::setupLine()
+{
+    if(file.eof())
+        return false;
+
+    std::string line;
+
+    do
+        getline(file, line);
+    while(line[0] == ';' || line[0] == '[');
+
+    currentKey = getKey(line);
+    currentValue = getValue(line);
+
+    if(currentKey == ";" || currentValue == ";")
+        setupLine();
+}
+
+std::string ParserIni::getKey(std::string line)
 {
     for (int i=0; i<line.size(); i++)
     {
@@ -56,7 +66,7 @@ std::string Settings::getParameter(std::string line)
     return ";";
 }
 
-std::string Settings::getValue(std::string line)
+std::string ParserIni::getValue(std::string line)
 {
     for (int i=0; i<line.size(); i++)
     {
@@ -71,14 +81,4 @@ std::string Settings::getValue(std::string line)
     }
 
     return ";";
-}
-
-void Settings::setParameter(std::string parameter, std::string value)
-{
-    if(parameter == "width")
-        width = std::stoi(value);
-    else if(parameter == "height")
-        height = std::stoi(value);
-    else if(parameter == "fps")
-        fps = std::stoi(value);
 }

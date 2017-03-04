@@ -13,7 +13,6 @@ class Program
 
         sf::RenderWindow& getIOSystem() { return m_iOSystem; };
         StateManager& getStateManager() { return m_stateManager; };
-        Settings& getSettings() { return m_settings; };
 
     private:
         void init();

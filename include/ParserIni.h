@@ -7,20 +7,28 @@
 class ParserIni
 {
     public:
-        ParserIni() {}
+        ParserIni();
         ParserIni(std::string fileName);
+        ~ParserIni();
 
-        void open(std::string fileName);
+        bool open(std::string fileName);
+        void close();
 
+        bool setupLine();
 
-        std::string getParameter(std::string line);
-        std::string getValue(std::string line);
-        void setParameter(std::string parameter, std::string value);
-
-    protected:
+        std::string getCurrentKey();
+        std::string getCurrentValue();
 
     private:
+        std::string getKey(std::string line);
+        std::string getValue(std::string line);
+
         std::fstream file;
+
+        std::string currentKey;
+        std::string currentValue;
+
+        bool opened;
 };
 
 #endif // PARSERINI_H
