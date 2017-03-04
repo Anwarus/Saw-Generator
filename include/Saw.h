@@ -3,6 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
+class Tooth;
+
 class Saw : public sf::Drawable
 {
     public:
@@ -10,9 +12,9 @@ class Saw : public sf::Drawable
 
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
-    protected:
-
     private:
+        int toothCount;
+        Tooth* tooths;
 };
 
 #endif // SAW_H
