@@ -9,6 +9,12 @@ StateMenu::StateMenu(Program* program)
     m_program = program;
 }
 
+StateMenu::~StateMenu()
+{
+    delete b;
+    delete i;
+}
+
 void StateMenu::input()
 {
     sf::Event event;
@@ -17,26 +23,29 @@ void StateMenu::input()
         if(event.type == sf::Event::Closed)
             m_program->getIOSystem().close();
 
-        if(event.type == sf::Event::MouseButtonPressed)
+        if(event.type == sf::Event::MouseButtonReleased)
         {
             if(event.mouseButton.button == sf::Mouse::Left)
             {
-                //check the inputField and button
+                if(i->isClicked(sf::Mouse::getPosition(m_program->getIOSystem())))
+                    i->setActive(true);
+                else
+                    i->setActive(false);
             }
         }
 
-/*        INSERTING AND ERASING THE TEXT IN TEXTFIELDS
+        if(event.type = sf::Event::TextEntered)
+        {
+          if(i->getActive())
+          {
+            if(event.text.unicode >= 48 && event.text.unicode <=57)
+                i->writeIn(event.text.unicode,3);
 
-            if(event.type.TextEntered)
-            {
-               if( event.text.unicode >= 48 && event.text.unicode <=57)
-               //insert a text into textField
-            }
-            else if(event.type.KeyPressed && event.key.code = sf::Keyboard::BackSpace)
-            {
-                //erase a text from textField
-            }
-*/
+            if(event.text.unicode == '\b')
+                i->writeBack();
+          }
+        }
+        b->onHover(sf::Mouse::getPosition(m_program->getIOSystem()));
     }
 }
 
@@ -48,4 +57,6 @@ void StateMenu::update(float deltaTime)
 void StateMenu::draw()
 {
     //std::cout<<"draw\n";
+    m_program->getIOSystem().draw(*b);
+    m_program->getIOSystem().draw(*i);
 }

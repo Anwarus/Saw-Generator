@@ -2,35 +2,56 @@
 
 InputField::InputField(int positionX, int positionY, int sizeX, int sizeY, sf::Color color)
 {
-    m_positionX = positionX;
-    m_positionY = positionY;
-    m_sizeX = sizeX;
-    m_sizeY = sizeY;
-    m_color = color;
+    this->positionX = positionX;
+    this->positionY = positionY;
+    this->sizeX = sizeX;
+    this->sizeY = sizeY;
+    this->color = color;
 
-    setRectangle();
-    m_string = "123";
-    setText();
+    setRectanglePosition(positionX +2, positionY +2);
+    setRectangleSize(sizeX -4 , sizeY -4);
+    setRectangleColor(sf::Color::Black);
+    setRectangleOutline(2, color);
+
+    loadFont();
+    setTextFont();
+    setTextPosition();
+    setTextCharacterSize();
+    str="";
+    setTextString();
+    setTextColor(color);
 }
 
-void InputField::writeIn()
+void InputField::writeIn(char a, int maxSize)
 {
-    //if(m_string.size()<=3)
+    if(str.getSize()<maxSize) str.insert(str.getSize(),a);
+    updateText();
 }
 
 void InputField::writeBack()
 {
-    if(m_string.size()>=1)
-        m_string.erase(m_string.size()-1);
+    if(str.getSize()>=1) str.erase(str.getSize()-1);
+    updateText();
+}
+
+bool InputField::getActive()
+{
+    return isActive;
+}
+
+void InputField::setActive(bool x)
+{
+    isActive = x;
 }
 
 void InputField::updateText()
 {
-    m_text.setString(m_string);
+    setTextString();
+    setTextPosition();
 }
 
 void InputField::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(m_rectangle);
-    target.draw(m_text);
+    target.draw(rectangle);
+    target.draw(text);
 }

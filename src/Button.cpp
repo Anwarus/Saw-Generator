@@ -1,47 +1,48 @@
 #include "Button.h"
 
-Button::Button(int positionX, int positionY, int sizeX, int sizeY, std::string text, sf::Color color)
+Button::Button(int positionX, int positionY, int sizeX, int sizeY, sf::String str, sf::Color color)
 {
-    m_positionX = positionX;
-    m_positionY = positionY;
-    m_sizeX = sizeX;
-    m_sizeY = sizeY;
-    m_color = color;
-    m_string = text;
+    this->positionX = positionX;
+    this->positionY = positionY;
+    this->sizeX = sizeX;
+    this->sizeY = sizeY;
+    this->str = str;
+    this->color = color;
 
-    setRectangle();
-    setText();
+    setRectanglePosition(positionX, positionY);
+    setRectangleSize(sizeX, sizeY);
+    setRectangleColor(color);
+
+    loadFont();
+    setTextFont();
+    setTextString();
+    setTextCharacterSize();
+    setTextPosition();
+    setTextColor(sf::Color::Black);
 }
 
-void Button::stateOfButton(sf::RenderWindow *window)
+void Button::onHover(sf::Vector2i position)
 {
-    m_mousePosition = sf::Mouse::getPosition(*window);
-
-    if(m_rectangle.getGlobalBounds().contains(m_mousePosition.x,m_mousePosition.y))
-        isHover = true;
-    else
-        isHover = false;
-
-    if(isHover)
+    if(rectangle.getGlobalBounds().contains(position.x, position.y))
     {
-        m_rectangle.setSize(sf::Vector2f(m_sizeX -4, m_sizeY -4));
-        m_rectangle.setFillColor(sf::Color::Black);
-        m_rectangle.setOutlineThickness(2);
-        m_rectangle.setOutlineColor(m_color);
-
-        m_text.setColor(m_color);
-    }else
-    {
-        m_rectangle.setSize(sf::Vector2f(m_sizeX, m_sizeY ));
-        m_rectangle.setFillColor(m_color);
-
-        m_text.setColor(sf::Color::Black);
+        setRectanglePosition(positionX +2, positionY +2);
+        setRectangleSize(sizeX -4,sizeY -4);
+        setRectangleColor(sf::Color::Black);
+        setRectangleOutline(2,color);
+        setTextColor(color);
     }
-
+    else
+    {
+        setRectanglePosition(positionX, positionY);
+        setRectangleSize(sizeX,sizeY);
+        setRectangleOutline(0, color);
+        setRectangleColor(color);
+        setTextColor(sf::Color::Black);
+    }
 }
 
 void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-     target.draw(m_rectangle);
-     target.draw(m_text);
+     target.draw(rectangle);
+     target.draw(text);
 }
