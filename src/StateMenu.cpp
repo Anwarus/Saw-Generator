@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "Program.h"
+#include "StateGenerator.h"
 
 StateMenu::StateMenu(Program* program)
 {
@@ -21,6 +22,11 @@ void StateMenu::input()
     {
         if(event.type == sf::Event::Closed)
             program->getIOSystem().close();
+        if(event.type == sf::Event::KeyReleased)
+        {
+            if(event.key.code == sf::Keyboard::Return)
+                program->getStateManager().changeState(new StateGenerator(program));
+        }
     }
 }
 

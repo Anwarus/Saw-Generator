@@ -14,8 +14,9 @@ private:
 
 public:
 
-	Arc() {};
+	Arc();
 	Arc(sf::Vector2f origin, float radius, int startAngle, int endAngle, int accuracy);
+	//Arc(sf::Vector2f pointA, sf::Vector2f pointB, )
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };

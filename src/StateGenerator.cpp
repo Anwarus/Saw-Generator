@@ -3,10 +3,18 @@
 #include <iostream>
 
 #include "Program.h"
+#include "Saw.h"
 
 StateGenerator::StateGenerator(Program* program)
 {
-    program = program;
+    this->program = program;
+
+    saw = new Saw();
+}
+
+StateGenerator::~StateGenerator()
+{
+    delete saw;
 }
 
 void StateGenerator::init()
@@ -26,10 +34,10 @@ void StateGenerator::input()
 
 void StateGenerator::update(float deltaTime)
 {
-    std::cout<<"update\n";
+    std::cout<<"update generator\n";
 }
 
 void StateGenerator::draw()
 {
-    std::cout<<"draw\n";
+    std::cout<<"draw generator\n";
 }

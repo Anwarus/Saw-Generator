@@ -5,10 +5,13 @@
 
 #include "State.h"
 
+class Saw;
+
 class StateGenerator : public State
 {
     public:
         StateGenerator(Program* program);
+        ~StateGenerator();
 
         virtual void init();
         virtual void input();
@@ -16,6 +19,7 @@ class StateGenerator : public State
         virtual void draw();
 
     private:
+        Saw* saw;
 
 };
 
