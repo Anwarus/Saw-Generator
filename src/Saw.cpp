@@ -1,10 +1,8 @@
 #include "Saw.h"
 
-#include "Tooth.h"
-
 Saw::Saw()
 {
-    tooths = new Tooth[toothCount];
+    init();
 }
 
 Saw::Saw(float radius, float toothHeight, int toothCount, int angleAlfa, int angleBeta)
@@ -14,6 +12,10 @@ Saw::Saw(float radius, float toothHeight, int toothCount, int angleAlfa, int ang
     this->toothCount = toothCount;
     this->angleAlfa = angleAlfa;
     this->angleBeta = angleBeta;
+
+    tooths = new Tooth[toothCount];
+
+    init();
 }
 
 Saw::~Saw()
@@ -35,8 +37,8 @@ void Saw::draw(sf::RenderTarget& target, sf::RenderStates states) const
 void Saw::setupTooths()
 {
     //Set first tooth
-    tooths[0][0].position = sf::Vector2f(toothHeight, 0);
-    tooths[0][1].position = sf::Vector2f(toothHeight, 0);
+    tooths[0][0].position = sf::Vector2f(0, radius - toothHeight);
+    tooths[0][1].position = sf::Vector2f(0, 0);
 
 
     //Rotate rest

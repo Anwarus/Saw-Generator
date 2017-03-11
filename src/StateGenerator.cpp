@@ -39,5 +39,5 @@ void StateGenerator::update(float deltaTime)
 
 void StateGenerator::draw()
 {
-    std::cout<<"draw generator\n";
+    program->getIOSystem().draw(*saw);
 }
