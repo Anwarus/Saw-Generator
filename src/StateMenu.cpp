@@ -1,7 +1,5 @@
 #include "StateMenu.h"
 
-#include <iostream>
-
 #include "Program.h"
 #include "StateGenerator.h"
 
@@ -32,10 +30,10 @@ void StateMenu::input()
 
 void StateMenu::update(float deltaTime)
 {
-    std::cout<<"update\n";
+
 }
 
 void StateMenu::draw()
 {
-    std::cout<<"draw\n";
+
 }

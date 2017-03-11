@@ -7,7 +7,7 @@
 class Program
 {
     public:
-        Program();
+        Program() {}
 
         void loop();
 

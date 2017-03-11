@@ -17,7 +17,7 @@ class Saw : public sf::Drawable
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
         void setupTooths();
 
-        void setRadius(float radius)           { this->radius = rafius; };
+        void setRadius(float radius)           { this->radius = radius; };
         void setToothHeight(float toothHeight) { this->toothHeight = toothHeight; };
 
         void setAngleAlfa(int angleAlfa)       { this->angleAlfa = angleAlfa; };

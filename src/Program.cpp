@@ -7,11 +7,6 @@
 #include "Settings.h"
 #include "ParserIni.h"
 
-Program::Program()
-{
-
-}
-
 void Program::init()
 {
     std::unique_ptr<ParserIni> parserIni(new ParserIni("settings.ini"));
