@@ -34,5 +34,10 @@ void Saw::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 void Saw::setupTooths()
 {
+    //Set first tooth
+    tooths[0][0].position = sf::Vector2f(toothHeight, 0);
+    tooths[0][1].position = sf::Vector2f(toothHeight, 0);
 
+
+    //Rotate rest
 }

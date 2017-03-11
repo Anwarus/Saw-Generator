@@ -3,7 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 
-class Tooth;
+//class Tooth;
+typedef sf::VertexArray Tooth;
 
 class Saw : public sf::Drawable
 {
@@ -33,6 +34,7 @@ class Saw : public sf::Drawable
 
         int toothCount;
         Tooth* tooths;
+
 };
 
 #endif // SAW_H
