@@ -3,8 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-//class Tooth;
-typedef sf::VertexArray Tooth;
+class Tooth;
 
 class Saw : public sf::Drawable
 {
@@ -33,7 +32,10 @@ class Saw : public sf::Drawable
         int angleBeta;
 
         int toothCount;
-        Tooth* tooths;
+        Tooth* teeth;
+
+        float toothAngle;
+        int percentC;
 
 };
 

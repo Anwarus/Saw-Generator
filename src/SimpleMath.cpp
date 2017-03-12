@@ -2,7 +2,7 @@
 
 #include <math.h>
 
-namespace Math
+namespace sm
 {
     float lengthOfLine(sf::Vector2f a, sf::Vector2f b)
     {
@@ -25,5 +25,15 @@ namespace Math
     sf::Vector2f centerOfLine(sf::Vector2f a, sf::Vector2f b)
     {
         return sf::Vector2f((a.x + b.x)/2.0, (a.y + b.y)/2.0);
+    }
+
+    float degreesToRadians(float degrees)
+    {
+        return PI/180.0 * degrees;
+    }
+
+    float radiansToDegrees(float radians)
+    {
+        return 180.0/PI * radians;
     }
 }

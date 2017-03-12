@@ -3,8 +3,10 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace Math
+namespace sm
 {
+    const float PI = 3.14159265;
+
     ///Return length of line
     float lengthOfLine(sf::Vector2f a, sf::Vector2f b);
     ///Return vector where x corresponds to a and y corresponds to b => y = ax + b
@@ -13,6 +15,9 @@ namespace Math
     float perpendicularFactor(float a);
     ///Returns center point of line
     sf::Vector2f centerOfLine(sf::Vector2f a, sf::Vector2f b);
+
+    float degreesToRadians(float degrees);
+    float radiansToDegrees(float radians);
 }
 
 #endif // MATH_H
