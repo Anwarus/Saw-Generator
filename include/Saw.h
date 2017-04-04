@@ -13,8 +13,16 @@ class Saw : public sf::Drawable
         ~Saw();
 
         void init();
+
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-        void setupTooths();
+
+        void setupTeeth();
+
+        void setupTeethPartA();
+        void setupTeethPartB();
+        void setupTeethPartC();
+        void setupTeethPartD();
+        void setupTeethPartE();
 
         void setRadius(float radius)           { this->radius = radius; };
         void setToothHeight(float toothHeight) { this->toothHeight = toothHeight; };

@@ -46,7 +46,7 @@ void Saw::draw(sf::RenderTarget& target, sf::RenderStates states) const
         target.draw(teeth[i]);
 }
 
-void Saw::setupTooths()
+void Saw::setupTeeth()
 {
     sf::Vector2f result;
 
@@ -78,10 +78,48 @@ void Saw::setupTooths()
 
     teeth[0].setC(result);
 
+    //Set B
+    sf::Vector2f center = sf::Vector2f(0, 0);
+    sf::Transform transform2;
+    transform2.rotate(sm::degreesToRadians());
+
     //Rotate rest
     sf::Transform transform2;
     for(int i=1; i<toothCount; i++)
     {
         teeth[i].rotate(sm::degreesToRadians(i * toothAngle));
     }
+}
+
+void Saw::setupTeethPartA()
+{
+    sf::Vector2f result;
+
+    //Set first tooth
+
+    //Set A
+    result.x = 0;
+    result.y = radius - toothHeight;
+
+    teeth[0].setA(result);
+}
+
+void Saw::setupTeethPartB()
+{
+
+}
+
+void Saw::setupTeethPartC()
+{
+
+}
+
+void Saw::setupTeethPartD()
+{
+
+}
+
+void Saw::setupTeethPartE()
+{
+
 }
