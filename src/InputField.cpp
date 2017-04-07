@@ -8,29 +8,41 @@ InputField::InputField(int positionX, int positionY, int sizeX, int sizeY, sf::C
     this->sizeY = sizeY;
     this->color = color;
 
-    setRectanglePosition(positionX +2, positionY +2);
-    setRectangleSize(sizeX -4 , sizeY -4);
-    setRectangleColor(sf::Color::Black);
-    setRectangleOutline(2, color);
-
-    loadFont();
-    setTextFont();
-    setTextPosition();
-    setTextCharacterSize();
-    str="";
-    setTextString();
-    setTextColor(color);
+    setRectangle();
+    setText();
 }
 
-void InputField::writeIn(char a, int maxSize)
+void InputField::setRectangle()
 {
-    if(str.getSize()<maxSize) str.insert(str.getSize(),a);
+    rectangle.setPosition(positionX +2, positionY +2);
+    rectangle.setSize(sf::Vector2f(sizeX-4,sizeY-4));
+    rectangle.setFillColor(sf::Color::Black);
+    rectangle.setOutlineThickness(2);
+    rectangle.setOutlineColor(color);
+}
+
+void InputField::setText()
+{
+    setTextPosition();
+    text.setCharacterSize(sizeY/1.5);
+    str="";
+    text.setString(str);
+    text.setColor(sf::Color::White);
+}
+
+void InputField::writeIn(char unicode, int maxSize)
+{
+    if(str.getSize()<maxSize)
+        str.insert(str.getSize(),unicode);
+
     updateText();
 }
 
 void InputField::writeBack()
 {
-    if(str.getSize()>=1) str.erase(str.getSize()-1);
+    if(str.getSize()>=1)
+        str.erase(str.getSize()-1);
+
     updateText();
 }
 
@@ -39,19 +51,13 @@ bool InputField::getActive()
     return isActive;
 }
 
-void InputField::setActive(bool x)
+void InputField::setActive(bool value)
 {
-    isActive = x;
+    isActive = value;
 }
 
 void InputField::updateText()
 {
-    setTextString();
+    text.setString(str);
     setTextPosition();
-}
-
-void InputField::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-    target.draw(rectangle);
-    target.draw(text);
 }

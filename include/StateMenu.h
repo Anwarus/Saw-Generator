@@ -4,9 +4,8 @@
 #include <SFML/Graphics.hpp>
 
 #include "State.h"
-
-#include "Button.h"
-#include "InputField.h"
+#include "Panel.h"
+#include "Block.h"
 
 class StateMenu : public State
 {
@@ -19,8 +18,7 @@ class StateMenu : public State
         virtual void draw();
 
     private:
-        Button* b = new Button(200,200,100,40,"OK",sf::Color::Green);
-        InputField *i = new InputField(200,250,100,30,sf::Color::Red);
+        Panel* panel = new Panel();
 
 };
 

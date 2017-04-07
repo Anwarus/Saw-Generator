@@ -3,7 +3,7 @@
 
 #include "Block.h"
 
-class InputField :public Block, public sf::Drawable
+class InputField :public Block
 {
     public:
         InputField(int positionX, int positionY, int sizeX, int sizeY, sf::Color color);
@@ -12,13 +12,15 @@ class InputField :public Block, public sf::Drawable
         void writeBack();
 
         bool getActive();
-        void setActive(bool x);
+        void setActive(bool value);
 
     private:
-         bool isActive;
-         void updateText();
+        void setRectangle();
+        void setText();
 
-         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+        bool isActive;
+        void updateText();
+
 };
 
 #endif // INPUTFIELD_H

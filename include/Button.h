@@ -3,7 +3,7 @@
 
 #include "Block.h"
 
-class Button :public Block, public sf::Drawable
+class Button :public Block
 {
     public:
         Button(int positionX, int positionY, int sizeX, int sizeY, sf::String str, sf::Color color);
@@ -11,7 +11,8 @@ class Button :public Block, public sf::Drawable
         void onHover(sf::Vector2i position);
 
     private:
-        void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+        void setRectangle();
+        void setText();
 
 };
 

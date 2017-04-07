@@ -2,62 +2,28 @@
 
 Block::Block()
 {
-
-}
-
-void Block::setRectanglePosition(int x, int y)
-{
-    rectangle.setPosition(x,y);
-}
-
-void Block::setRectangleSize(int x, int y)
-{
-    rectangle.setSize(sf::Vector2f(x,y));
-}
-
-void Block::setRectangleColor(sf::Color c)
-{
-    rectangle.setFillColor(c);
-}
-
-void Block::setRectangleOutline(int x, sf::Color c)
-{
-    rectangle.setOutlineThickness(x);
-    rectangle.setOutlineColor(c);
+    loadFont();
 }
 
 void Block::loadFont()
 {
     if(!font.loadFromFile("data/consola.ttf"))
         std::cout<<"Could not load font!";
-}
 
-void Block::setTextFont()
-{
     text.setFont(font);
-}
-
-void Block::setTextString()
-{
-    text.setString(str);
-}
-
-void Block::setTextColor(sf::Color c)
-{
-    text.setColor(c);
-}
-
-void Block::setTextCharacterSize()
-{
-    text.setCharacterSize(sizeY/1.5);
 }
 
 void Block::setTextPosition()
 {
-    int textPosX = text.getGlobalBounds().width;
-    int textPosY = text.getGlobalBounds().height;
+    sf::FloatRect textRect = text.getLocalBounds();
+    text.setOrigin(textRect.left + textRect.width/2, textRect.top + textRect.height/2);
+    text.setPosition(positionX + sizeX/2, positionY + sizeY/2);
+}
 
-    text.setPosition(positionX + sizeX/2 - textPosX/2, positionY + sizeY/2 - textPosY);
+void Block::clearStr()
+{
+    str = "";
+    text.setString(str);
 }
 
 bool Block::isClicked(sf::Vector2i position)
@@ -66,4 +32,10 @@ bool Block::isClicked(sf::Vector2i position)
         return true;
       else
         return false;
+}
+
+void Block::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+    target.draw(rectangle);
+    target.draw(text);
 }
