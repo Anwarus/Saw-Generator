@@ -13,8 +13,7 @@ ParserIni::ParserIni(std::string fileName)
 
 ParserIni::~ParserIni()
 {
-    if(opened)
-        file.close();
+    close();
 }
 
 bool ParserIni::open(std::string fileName)

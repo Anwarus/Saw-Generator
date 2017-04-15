@@ -19,7 +19,7 @@ class StateManager
     protected:
 
     private:
-        std::stack<State*> m_states;
+        std::stack<State*> states;
 };
 
 #endif // STATEMANAGER_H

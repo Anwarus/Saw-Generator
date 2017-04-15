@@ -9,12 +9,13 @@ class State
         State();
         virtual ~State(){};
 
+        virtual void init() = 0;
         virtual void input() = 0;
         virtual void update(float deltaTime) = 0;
         virtual void draw() = 0;
 
     protected:
-        Program* m_program;
+        Program* program;
 };
 
 #endif // STATE_H

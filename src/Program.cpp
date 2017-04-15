@@ -7,11 +7,6 @@
 #include "Settings.h"
 #include "ParserIni.h"
 
-Program::Program()
-{
-
-}
-
 void Program::init()
 {
     std::unique_ptr<ParserIni> parserIni(new ParserIni("settings.ini"));
@@ -20,11 +15,11 @@ void Program::init()
     while(parserIni->setupLine())
         Settings::getInstance().setField(parserIni->getCurrentKey(), parserIni->getCurrentValue());
 
-    m_iOSystem.create(sf::VideoMode(std::stoi(Settings::getInstance().getFieldValue("width")),
+    iOSystem.create(sf::VideoMode(std::stoi(Settings::getInstance().getFieldValue("width")),
                                     std::stoi(Settings::getInstance().getFieldValue("height"))),
                                     "Saw Generator");
 
-    m_stateManager.pushState(new StateMenu(this));
+    stateManager.pushState(new StateMenu(this));
 }
 
 void Program::loop()
@@ -35,19 +30,19 @@ void Program::loop()
 
     int fps = std::stoi(Settings::getInstance().getFieldValue("fps"));
 
-    while(m_iOSystem.isOpen())
+    while(iOSystem.isOpen())
     {
         float deltaTime = clock.getElapsedTime().asSeconds();
         if(deltaTime >= 1.0/fps)
         {
             clock.restart();
 
-            m_stateManager.peekState()->input();
-            m_stateManager.peekState()->update(deltaTime);
+            stateManager.peekState()->input();
+            stateManager.peekState()->update(deltaTime);
 
-            m_iOSystem.clear(sf::Color(37,37,38));
-            m_stateManager.peekState()->draw();
-            m_iOSystem.display();
+            iOSystem.clear();
+            stateManager.peekState()->draw();
+            iOSystem.display();
         }
     }
 }

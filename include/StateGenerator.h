@@ -1,17 +1,17 @@
-#ifndef STATEMENU_H
-#define STATEMENU_H
+#ifndef STATEGENERATOR_H
+#define STATEGENERATOR_H
 
 #include <SFML/Graphics.hpp>
 
 #include "State.h"
-#include "Panel.h"
-#include "Block.h"
 
-class StateMenu : public State
+class Saw;
+
+class StateGenerator : public State
 {
     public:
-        StateMenu(Program* program);
-        ~StateMenu();
+        StateGenerator(Program* program);
+        ~StateGenerator();
 
         virtual void init();
         virtual void input();
@@ -19,8 +19,8 @@ class StateMenu : public State
         virtual void draw();
 
     private:
-        Panel panel;
+        Saw* saw;
 
 };
 
-#endif // STATEMENU_H
+#endif // STATEGENERATOR_H

@@ -1,16 +1,15 @@
 #include "StateMenu.h"
 
-#include <iostream>
-
 #include "Program.h"
+#include "StateGenerator.h"
 
 StateMenu::StateMenu(Program* program)
 {
-    m_program = program;
+    program = program;
     panel.addItem(Button(100,100,100,50,"Generate",sf::Color(0,122,204)));
 }
 
-StateMenu::~StateMenu()
+void StateMenu::init()
 {
 
 }
@@ -44,11 +43,10 @@ void StateMenu::input()
 
 void StateMenu::update(float deltaTime)
 {
-    //std::cout<<"update\n";
+
 }
 
 void StateMenu::draw()
 {
-    //std::cout<<"draw\n";
     m_program->getIOSystem().draw(panel);
 }
