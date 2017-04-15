@@ -13,17 +13,31 @@ void StateMenu::init()
 
 }
 
+StateMenu::~StateMenu()
+{
+    delete panel;
+}
+
 void StateMenu::input()
 {
     sf::Event event;
-    while(program->getIOSystem().pollEvent(event))
+
+    while(m_program->getIOSystem().pollEvent(event))
     {
         if(event.type == sf::Event::Closed)
-            program->getIOSystem().close();
-        if(event.type == sf::Event::KeyReleased)
+            m_program->getIOSystem().close();
+
+        if(event.type == sf::Event::MouseButtonReleased)
         {
-            if(event.key.code == sf::Keyboard::Return)
-                program->getStateManager().changeState(new StateGenerator(program));
+            if(event.mouseButton.button == sf::Mouse::Left)
+            {
+
+            }
+        }
+
+        if(event.type = sf::Event::TextEntered)
+        {
+
         }
     }
 }
@@ -35,5 +49,5 @@ void StateMenu::update(float deltaTime)
 
 void StateMenu::draw()
 {
-
+    m_program->getIOSystem().draw(*panel);
 }

@@ -17,7 +17,9 @@ class ParserIni
         bool setupLine();
 
         std::string getCurrentKey() { return currentKey; }
-        std::string getCurrentValue() {return currentValue; }
+
+        std::string getCurrentValue() { return currentValue; }
+
 
     private:
         std::string getKey(std::string line);

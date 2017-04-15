@@ -1,65 +1,51 @@
 #include "Button.h"
 
-Button::Button(int positionX, int positionY, int sizeX, int sizeY, string text , sf::Color color)
+Button::Button(int positionX, int positionY, int sizeX, int sizeY, sf::String str, sf::Color color)
 {
-    m_positionX = positionX;
-    m_positionY = positionY;
-    m_sizeX = sizeX;
-    m_sizeY = sizeY;
-    m_color = color;
-    m_text = text;
+    this->positionX = positionX;
+    this->positionY = positionY;
+    this->sizeX = sizeX;
+    this->sizeY = sizeY;
+    this->str = str;
+    this->color = color;
 
-    setRect();
-    setInscription();
+    setRectangle();
+    setText();
 }
 
-void Button::setRect()
+void Button::setRectangle()
 {
-    rect.setSize(sf::Vector2f(m_sizeX,m_sizeY));
-    rect.setPosition(m_positionX,m_positionY);
-    rect.setFillColor(m_color);
+    rectangle.setPosition(positionX,positionY);
+    rectangle.setSize(sf::Vector2f(sizeX,sizeY));
+    rectangle.setFillColor(color);
 }
 
-void Button::setInscription()
+void Button::setText()
 {
-    if(!font.loadFromFile("arial.ttf"))
-      cout<<"Could not load font!";
-
-    inscription.setString(m_text);
-    inscription.setFont(font);
-    inscription.setCharacterSize(m_sizeY);
-    inscription.setPosition(m_positionX + m_sizeY/1.5,m_positionY - m_sizeY/6);
+    text.setString(str);
+    text.setCharacterSize(sizeY/1.5);
+    setTextPosition();
+    text.setColor(sf::Color::Black);
 }
 
-
-bool Button::isClicked(sf::RenderWindow *window)
+void Button::onHover(sf::Vector2i position)
 {
-    mousePosition = sf::Mouse::getPosition(*window);
-
-
-   /*
-    if((mousePosition.x >= m_positionX && mousePosition.x <= m_positionX + m_sizeX) && (mousePosition.y >= m_positionX && mousePosition.y <= m_positionY+ m_sizeY))
-         cout<<"Clicked"<<endl;
-    else
-        cout<<mousePosition.x<<"|"<<mousePosition.y<<endl;
-    */
-    if(rect.getGlobalBounds().contains(mousePosition.x,mousePosition.y))
+    if(rectangle.getGlobalBounds().contains(position.x, position.y))
     {
-        cout<<"Clicked"<<endl;
-        return true;
+        rectangle.setPosition(positionX+2,positionY+2);
+        rectangle.setSize(sf::Vector2f(sizeX-4,sizeY-4));
+        rectangle.setFillColor(sf::Color::Black);
+        rectangle.setOutlineThickness(2);
+        rectangle.setOutlineColor(color);
+        text.setColor(color);
     }
-
     else
     {
-        cout<<mousePosition.x<<"|"<<mousePosition.y<<endl;
-        return false;
+        rectangle.setPosition(positionX,positionY);
+        rectangle.setSize(sf::Vector2f(sizeX,sizeY));
+        rectangle.setFillColor(color);
+        rectangle.setOutlineThickness(0);
+        rectangle.setOutlineColor(color);
+        text.setColor(sf::Color::Black);
     }
-
-
-}
-
- void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
-{
-     target.draw(rect);
-     target.draw(inscription);
 }
