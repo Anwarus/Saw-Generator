@@ -2,28 +2,26 @@
 #define PANEL_H
 
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 #include "Button.h"
 #include "InputField.h"
 #include "Label.h"
 
-class Panel: public sf::Drawable, public sf::Transformable
+class Panel: public sf::Drawable
 {
     public:
         Panel();
-        ~Panel();
 
-        void addItem(Label& item);
-        void addItem(InputField& item);
-        void addItem(Button& item);
+        void addItem(Label item);
+        void addItem(InputField item);
+        void addItem(Button item);
+        void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
     private:
-
-        void draw(sf::RenderTarget& target, sf::RenderStates states) const;
         std::vector <Label> labels;
         std::vector <InputField> inputFields;
         std::vector <Button> buttons;
-
 };
 
 #endif // PANEL_H

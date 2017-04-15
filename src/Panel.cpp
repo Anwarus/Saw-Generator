@@ -5,28 +5,24 @@ Panel::Panel()
 
 }
 
-Panel::~Panel()
-{
-
-}
-
-void Panel::addItem(Label& item)
+void Panel::addItem(Label item)
 {
     labels.push_back(item);
 }
 
-void Panel::addItem(InputField& item)
+void Panel::addItem(InputField item)
 {
     inputFields.push_back(item);
 }
 
-void Panel::addItem(Button& item)
+void Panel::addItem(Button item)
 {
     buttons.push_back(item);
 }
 
 void Panel::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
+   /*
    for(int i=0; i<labels.size(); i++)
       target.draw(labels[i]);
 
@@ -35,6 +31,6 @@ void Panel::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
    for(int i=0; i<buttons.size(); i++)
       target.draw(buttons[i]);
-
+      */
+    target.draw(buttons[0]);
 }
-

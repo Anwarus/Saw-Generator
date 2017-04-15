@@ -1,6 +1,7 @@
 #ifndef INPUTFIELD_H
 #define INPUTFIELD_H
 
+#include <iostream>
 #include "Block.h"
 
 class InputField :public Block
@@ -10,9 +11,12 @@ class InputField :public Block
 
         void writeIn(char x, int maxSize);
         void writeBack();
+        void clearStr();
 
         bool getActive();
         void setActive(bool value);
+
+        std::string getString();
 
     private:
         void setRectangle();

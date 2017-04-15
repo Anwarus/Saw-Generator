@@ -18,7 +18,7 @@ class StateMenu : public State
         virtual void draw();
 
     private:
-        Panel* panel = new Panel();
+        Panel panel;
 
 };
 

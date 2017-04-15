@@ -46,6 +46,12 @@ void InputField::writeBack()
     updateText();
 }
 
+void InputField::clearStr()
+{
+    str = "";
+    text.setString(str);
+}
+
 bool InputField::getActive()
 {
     return isActive;
@@ -60,4 +66,9 @@ void InputField::updateText()
 {
     text.setString(str);
     setTextPosition();
+}
+
+std::string InputField::getString()
+{
+    return str;
 }

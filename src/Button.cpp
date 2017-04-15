@@ -10,7 +10,9 @@ Button::Button(int positionX, int positionY, int sizeX, int sizeY, sf::String st
     this->color = color;
 
     setRectangle();
+    loadFont();
     setText();
+
 }
 
 void Button::setRectangle()

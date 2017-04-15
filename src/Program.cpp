@@ -45,7 +45,7 @@ void Program::loop()
             m_stateManager.peekState()->input();
             m_stateManager.peekState()->update(deltaTime);
 
-            m_iOSystem.clear();
+            m_iOSystem.clear(sf::Color(37,37,38));
             m_stateManager.peekState()->draw();
             m_iOSystem.display();
         }
