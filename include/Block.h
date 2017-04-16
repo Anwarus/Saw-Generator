@@ -17,19 +17,13 @@ class Block: public sf::Drawable
         int sizeX;
         int sizeY;
         sf::Color color;
-        sf::String str;
 
-        sf::Text text;
         sf::RectangleShape rectangle;
 
+        sf::String str;
+        sf::Text text;
+
         void setTextPosition();
-
-        sf::Font font;
-        void loadFont();
-
-    private:
-
-
 };
 
 #endif // BLOCK_H

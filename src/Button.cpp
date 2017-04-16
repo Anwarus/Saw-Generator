@@ -1,6 +1,6 @@
 #include "Button.h"
 
-Button::Button(int positionX, int positionY, int sizeX, int sizeY, sf::String str, sf::Color color)
+Button::Button(int positionX, int positionY, int sizeX, int sizeY, sf::String str, sf::Font font, sf::Color color)
 {
     this->positionX = positionX;
     this->positionY = positionY;
@@ -10,9 +10,8 @@ Button::Button(int positionX, int positionY, int sizeX, int sizeY, sf::String st
     this->color = color;
 
     setRectangle();
-    loadFont();
     setText();
-
+    text.setFont(font);
 }
 
 void Button::setRectangle()

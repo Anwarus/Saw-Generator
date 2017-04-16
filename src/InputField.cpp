@@ -1,6 +1,6 @@
 #include "InputField.h"
 
-InputField::InputField(int positionX, int positionY, int sizeX, int sizeY, sf::Color color)
+InputField::InputField(int positionX, int positionY, int sizeX, int sizeY, sf::Font font, sf::Color color)
 {
     this->positionX = positionX;
     this->positionY = positionY;
@@ -10,6 +10,7 @@ InputField::InputField(int positionX, int positionY, int sizeX, int sizeY, sf::C
 
     setRectangle();
     setText();
+    text.setFont(font);
 }
 
 void InputField::setRectangle()

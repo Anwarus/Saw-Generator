@@ -2,15 +2,7 @@
 
 Block::Block()
 {
-    loadFont();
-}
 
-void Block::loadFont()
-{
-    if(!font.loadFromFile("data/consola.ttf"))
-        std::cout<<"Could not load font!";
-
-    text.setFont(font);
 }
 
 void Block::setTextPosition()
@@ -31,5 +23,5 @@ bool Block::isClicked(sf::Vector2i position)
 void Block::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(rectangle);
-    //target.draw(text);
+    target.draw(text);
 }

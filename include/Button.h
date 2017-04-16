@@ -6,7 +6,7 @@
 class Button :public Block
 {
     public:
-        Button(int positionX, int positionY, int sizeX, int sizeY, sf::String str, sf::Color color);
+        Button(int positionX, int positionY, int sizeX, int sizeY, sf::String str, sf::Font font, sf::Color color);
 
         void onHover(sf::Vector2i position);
 

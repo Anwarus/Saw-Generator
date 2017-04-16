@@ -7,7 +7,7 @@
 class InputField :public Block
 {
     public:
-        InputField(int positionX, int positionY, int sizeX, int sizeY, sf::Color color);
+        InputField(int positionX, int positionY, int sizeX, int sizeY, sf::Font font, sf::Color color);
 
         void writeIn(char x, int maxSize);
         void writeBack();

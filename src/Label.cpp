@@ -1,6 +1,6 @@
 #include "Label.h"
 
-Label::Label(int positionX, int positionY, int textSize, sf::String str, sf::Color color)
+Label::Label(int positionX, int positionY, int textSize, sf::String str, sf::Font font, sf::Color color)
 {
     this->positionX = positionX;
     this->positionY = positionY;
@@ -10,6 +10,7 @@ Label::Label(int positionX, int positionY, int textSize, sf::String str, sf::Col
     textSize = tSize;
 
     setText();
+    text.setFont(font);
 }
 
 void Label::setText()

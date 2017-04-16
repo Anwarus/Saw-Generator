@@ -6,7 +6,7 @@
 class Label: public Block
 {
     public:
-        Label(int positionX, int positionY, int textSize, sf::String str, sf::Color color);
+        Label(int positionX, int positionY, int textSize, sf::String str, sf::Font font, sf::Color color);
 
     private:
         int tSize;
