@@ -19,6 +19,9 @@ void Program::init()
                                     std::stoi(Settings::getInstance().getFieldValue("height"))),
                                     "Saw Generator");
 
+    //Load font
+    font.loadFromFile(Settings::getInstance().getFieldValue("font"));
+
     stateManager.pushState(new StateMenu(this));
 }
 

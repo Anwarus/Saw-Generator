@@ -14,6 +14,8 @@ class Program
         sf::RenderWindow& getIOSystem() { return iOSystem; };
         StateManager& getStateManager() { return stateManager; };
 
+        void getFont() { return font; };
+
     private:
         void init();
 
@@ -21,6 +23,9 @@ class Program
         sf::RenderWindow iOSystem;
         //Logic
         StateManager     stateManager;
+
+        //Font
+        sf::Font font;
 };
 
 #endif // PROGRAM_H

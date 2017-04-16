@@ -12,7 +12,7 @@ StateMenu::StateMenu(Program* program)
 
 void StateMenu::init()
 {
-    Button button = Button(10, 10, 200, 100, "Test", sf::Color::Red);
+    Button button = Button(10, 10, 200, 100, "Test", program->getFont(), sf::Color::Red);
     panel.addItem(button);
 }
 
