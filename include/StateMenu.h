@@ -5,13 +5,11 @@
 
 #include "State.h"
 #include "Panel.h"
-#include "Block.h"
 
 class StateMenu : public State
 {
     public:
         StateMenu(Program* program);
-        ~StateMenu();
 
         virtual void init();
         virtual void input();
@@ -19,7 +17,7 @@ class StateMenu : public State
         virtual void draw();
 
     private:
-        Panel* panel = new Panel();
+        Panel panel;
 
 };
 

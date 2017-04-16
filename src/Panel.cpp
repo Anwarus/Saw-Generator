@@ -10,17 +10,17 @@ Panel::~Panel()
 
 }
 
-void Panel::addItem(Label& item)
+void Panel::addItem(Label item)
 {
     labels.push_back(item);
 }
 
-void Panel::addItem(InputField& item)
+void Panel::addItem(InputField item)
 {
     inputFields.push_back(item);
 }
 
-void Panel::addItem(Button& item)
+void Panel::addItem(Button item)
 {
     buttons.push_back(item);
 }

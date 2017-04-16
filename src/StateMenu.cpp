@@ -5,27 +5,25 @@
 
 StateMenu::StateMenu(Program* program)
 {
-    program = program;
+    this->program = program;
+
+    init();
 }
 
 void StateMenu::init()
 {
-
-}
-
-StateMenu::~StateMenu()
-{
-    delete panel;
+    Button button = Button(10, 10, 200, 100, "Test", sf::Color::Red);
+    panel.addItem(button);
 }
 
 void StateMenu::input()
 {
     sf::Event event;
 
-    while(m_program->getIOSystem().pollEvent(event))
+    while(program->getIOSystem().pollEvent(event))
     {
         if(event.type == sf::Event::Closed)
-            m_program->getIOSystem().close();
+            program->getIOSystem().close();
 
         if(event.type == sf::Event::MouseButtonReleased)
         {
@@ -49,5 +47,5 @@ void StateMenu::update(float deltaTime)
 
 void StateMenu::draw()
 {
-    m_program->getIOSystem().draw(*panel);
+    program->getIOSystem().draw(panel);
 }

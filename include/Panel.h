@@ -13,9 +13,9 @@ class Panel: public sf::Drawable, public sf::Transformable
         Panel();
         ~Panel();
 
-        void addItem(Label& item);
-        void addItem(InputField& item);
-        void addItem(Button& item);
+        void addItem(Label item);
+        void addItem(InputField item);
+        void addItem(Button item);
 
     private:
 
